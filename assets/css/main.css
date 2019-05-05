@@ -20,8 +20,17 @@ div.menu {
   box-shadow: 0 0 4px 2px rgb(170, 170, 170);
 }
 
-button.topic {
+div.buttons {
+  display: flex;
+}
+
+div.button {
   margin: 0 5px;
+  width: fit-content;
+  position: relative;
+}
+
+button.topic {
   padding: 8px 10px;
   font-family: 'VT323', monospace;
   font-size: 1.2em;
@@ -31,20 +40,21 @@ button.topic {
   border: none;
 }
 
-button.topic > i {
+div.button > i {
   display: none;
   position: absolute;
-  top: 2px;
-  right: 2px;
-  font-size: 0.6em;
+  z-index: 2;
+  top: 1px;
+  right: 3px;
+  font-size: 0.7em;
   color: rgb(125, 255, 194);
 }
 
-button.topic:hover > i {
+div.button:hover > i {
   display: block;
 }
 
-button.topic > i:hover {
+div.button > i:hover {
   color: white;
 }
 

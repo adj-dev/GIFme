@@ -14,13 +14,15 @@ function populateButtons() {
   $('.buttons').empty();
 
   for (const topic of topics) {
+    let div = $('<div>');
+    div.addClass('button');
     let btn = $('<button>');
     let i = $('<i>');
     btn.addClass('topic');
     i.addClass('fas fa-times');
     btn.text(topic);
-    btn.append(i);
-    $('.buttons').append(btn);
+    div.append(btn).append(i);
+    $('.buttons').append(div);
   }
 }
 
@@ -31,6 +33,17 @@ function addButton() {
     populateButtons();
   }
   $('input').val('');
+}
+
+function removeButton() {
+  let topic = $(this).parent().text();
+  for (let i = 0; i < topics.length; i++) {
+    if (topics[i] === topic) {
+      topics.splice(i, 1);
+      i--;
+    }
+  };
+  populateButtons();
 }
 
 function fetchGIFS() {
@@ -88,7 +101,7 @@ $(function () {
     .on('click', '.topic', fetchGIFS) // Handle topic buttons
     .on('click', '.gif', toggleGIF) // Handle GIFs
     .on('click', '.add-button', addButton) // Handle "add button" button
-
+    .on('click', '.button i', removeButton); // Handle "remove button" 
   // Handle input upon keydown of Enter key
   $('input').keydown((e) => {
     if (e.which === 13) {
