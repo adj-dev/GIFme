@@ -1,8 +1,53 @@
 /*--------------------------------------------------*/
+/*---------------------DOCUMENT---------------------*/
+/*--------------------------------------------------*/
+
+body {
+  font-family: 'Space Mono', monospace;
+}
+
+/*--------------------------------------------------*/
 /*-----------------------MENU-----------------------*/
 /*--------------------------------------------------*/
 
 .menu {
   display: flex;
   justify-content: space-between;
+}
+
+div.menu {
+  padding: 5px;
+  box-shadow: 0 0 4px 2px rgb(170, 170, 170);
+}
+
+button.topic {
+  margin: 0 5px;
+  padding: 8px 10px;
+  font-family: 'VT323', monospace;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  position: relative;
+  background-color: rgb(96, 226, 165);
+  border: none;
+}
+
+button.topic > i {
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 0.6em;
+  color: rgb(125, 255, 194);
+}
+
+button.topic:hover > i {
+  display: block;
+}
+
+button.topic > i:hover {
+  color: white;
+}
+
+div.form {
+  display: flex;
 }

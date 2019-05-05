@@ -15,8 +15,11 @@ function populateButtons() {
 
   for (const topic of topics) {
     let btn = $('<button>');
-    btn.addClass('topic')
+    let i = $('<i>');
+    btn.addClass('topic');
+    i.addClass('fas fa-times');
     btn.text(topic);
+    btn.append(i);
     $('.buttons').append(btn);
   }
 }
