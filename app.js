@@ -37,8 +37,8 @@ function fetchGIFS() {
     let gifs = [];
     for (const item of data) {
       gifs.push({
-        gifSource: item.images.original.url,
-        imgSource: item.images.original_still.url,
+        gifSource: item.images.fixed_height.url,
+        imgSource: item.images.fixed_height_still.url,
       });
     }
     renderGIFS(gifs);
