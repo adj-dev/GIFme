@@ -4,8 +4,6 @@ const topics = [
   'dogs',
   'cats',
   'pie',
-  'happy',
-  'sad',
   'turtle',
   'horse',
   'snowboarding',
