@@ -13,12 +13,23 @@ const topics = [
 ]
 
 function populateButtons() {
+  $('.buttons').empty();
+
   for (const topic of topics) {
     let btn = $('<button>');
     btn.addClass('topic')
     btn.text(topic);
     $('.buttons').append(btn);
   }
+}
+
+function addButton() {
+  let newTopic = $('input').val();
+  if (newTopic) {
+    topics.push(newTopic.toLowerCase());
+    populateButtons();
+  }
+  $('input').val('');
 }
 
 function fetchGIFS() {
@@ -71,6 +82,16 @@ $(function () {
   // Populate buttons from topics
   populateButtons();
 
-  // Button click handler --> GIF click handler
-  $(document).on('click', '.buttons', fetchGIFS).on('click', '.gif', toggleGIF);
+  // Handle clicks
+  $(document)
+    .on('click', '.topic', fetchGIFS) // Handle topic buttons
+    .on('click', '.gif', toggleGIF) // Handle GIFs
+    .on('click', '.add-button', addButton) // Handle "add button" button
+
+  // Handle input upon keydown of Enter key
+  $('input').keydown((e) => {
+    if (e.which === 13) {
+      addButton();
+    }
+  });
 });
