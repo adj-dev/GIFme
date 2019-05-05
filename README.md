@@ -1,2 +1,2 @@
-# GitTastic
+# GifTastic
 Homework 7
