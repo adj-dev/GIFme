@@ -182,36 +182,3 @@ $(function () {
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-// //  EXPERIMENTAL SHHTUF BELOW!!!! WATCH YOUR STEP
-
-// function getButtonsTotalWidth() {
-//   let allButtons = [...$('.button')];
-//   console.log(allButtons);
-//   let totalWidth = 0;
-
-//   allButtons.forEach(button => {
-//     totalWidth += $(button).outerWidth(true);
-//   });
-
-//   console.log(totalWidth);
-// }
-
-//   // Started messing with horizontal scrolling feature - to use this again throw it back into the document.ready function
-//   $(window).resize(e => {
-//     let divWidth = $('.buttons').outerWidth();
-//     console.log(divWidth);
-
-//   });
-
-
-//   getButtonsTotalWidth();
