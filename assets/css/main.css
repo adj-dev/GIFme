@@ -7,27 +7,64 @@ body {
 }
 
 /*--------------------------------------------------*/
+/*----------------------HEADER----------------------*/
+/*--------------------------------------------------*/
+
+div.header {
+  height: 280px;
+  text-align: center;
+}
+
+h1.banner {
+  font-size: 6em;
+}
+
+h1.banner > span,
+h3.banner {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/*--------------------------------------------------*/
 /*-----------------------MENU-----------------------*/
 /*--------------------------------------------------*/
 
-.menu {
+div.menu {
   display: flex;
   justify-content: space-between;
-}
-
-div.menu {
-  padding: 5px;
-  box-shadow: 0 0 4px 2px rgb(170, 170, 170);
+  padding: 10px;
+  box-shadow: 0 5px 5px 0 rgb(190, 190, 190);
 }
 
 div.buttons {
   display: flex;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow: overlay;
+  padding-bottom: 10px;
+}
+
+div.buttons::-webkit-scrollbar {
+  height: 3px;
+}
+
+div.buttons::-webkit-scrollbar-thumb {
+  background: rgb(96, 226, 165);
 }
 
 div.button {
-  margin: 0 5px;
+  margin-right: 10px;
   width: fit-content;
   position: relative;
+}
+
+div.button:hover {
+  cursor: pointer;
+}
+
+div.button:hover > button.topic {
+  background-color: rgb(38, 201, 193);
+  cursor: pointer;
 }
 
 button.topic {
@@ -40,10 +77,13 @@ button.topic {
   border: none;
 }
 
+button.topic:focus {
+  outline: none;
+}
+
 div.button > i {
   display: none;
   position: absolute;
-  z-index: 2;
   top: 1px;
   right: 3px;
   font-size: 0.7em;
@@ -60,4 +100,45 @@ div.button > i:hover {
 
 div.form {
   display: flex;
+  margin-left: 10px;
+  padding-bottom: 10px;
+}
+
+input::placeholder {
+  font-style: italic;
+  color: rgb(184, 184, 184);
+}
+
+button.add-button {
+  border: none;
+  background-color: unset;
+  padding: 0;
+  padding-left: 10px;
+  cursor: pointer;
+  font-size: 2.1em;
+  color: rgb(96, 226, 165);
+}
+
+button.add-button:focus {
+  outline: none;
+}
+
+button.add-button:hover,
+button.add-button:focus {
+  color: rgb(38, 201, 193);
+}
+
+/*--------------------------------------------------*/
+/*-------------------GIF-CONTAINER------------------*/
+/*--------------------------------------------------*/
+
+div.gif-container {
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gif-container > img {
+  margin-bottom: 50px;
 }

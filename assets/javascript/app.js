@@ -22,7 +22,7 @@ function populateButtons() {
     i.addClass('fas fa-times');
     btn.text(topic);
     div.append(btn).append(i);
-    $('.buttons').append(div);
+    $('.buttons').prepend(div);
   }
 }
 
@@ -91,6 +91,20 @@ function toggleGIF() {
   }
 }
 
+let toggled = false;
+
+function toggleButtonColor() {
+  let parentElement = $(this).parent();
+  let button = parentElement.children('.topic');
+  if (!toggled) {
+    button.css({ 'background-color': 'rgb(38, 201, 193)' });
+    toggled = true;
+  } else {
+    button.css({ 'background-color': 'rgb(96, 226, 165)' });
+    toggled = false;
+  }
+};
+
 // On load
 $(function () {
   // Populate buttons from topics
@@ -102,10 +116,44 @@ $(function () {
     .on('click', '.gif', toggleGIF) // Handle GIFs
     .on('click', '.add-button', addButton) // Handle "add button" button
     .on('click', '.button i', removeButton); // Handle "remove button" 
+
   // Handle input upon keydown of Enter key
-  $('input').keydown((e) => {
+  $('input').keydown(e => {
     if (e.which === 13) {
       addButton();
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+// //  EXPERIMENTAL SHHTUF BELOW!!!! WATCH YOUR STEP
+
+// function getButtonsTotalWidth() {
+//   let allButtons = [...$('.button')];
+//   console.log(allButtons);
+//   let totalWidth = 0;
+
+//   allButtons.forEach(button => {
+//     totalWidth += $(button).outerWidth(true);
+//   });
+
+//   console.log(totalWidth);
+// }
+
+//   // Started messing with horizontal scrolling feature - to use this again throw it back into the document.ready function
+//   $(window).resize(e => {
+//     let divWidth = $('.buttons').outerWidth();
+//     console.log(divWidth);
+
+//   });
+
+
+//   getButtonsTotalWidth();
