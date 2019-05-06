@@ -11,12 +11,14 @@ body {
 /*--------------------------------------------------*/
 
 div.header {
-  height: 280px;
+  height: 380px;
   text-align: center;
 }
 
 h1.banner {
   font-size: 6em;
+  margin: 0;
+  padding: 0.87em 0 0.1em 0;
 }
 
 h1.banner > span,
@@ -30,10 +32,11 @@ h3.banner {
 /*--------------------------------------------------*/
 
 div.menu {
+  background-color: white;
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  box-shadow: 0 5px 5px 0 rgb(190, 190, 190);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 div.buttons {
@@ -128,17 +131,57 @@ button.add-button:focus {
   color: rgb(38, 201, 193);
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+}
+
 /*--------------------------------------------------*/
 /*-------------------GIF-CONTAINER------------------*/
 /*--------------------------------------------------*/
 
 div.gif-container {
+  margin: 0 auto;
   margin-top: 60px;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+div.gif-container.increased-margin {
+  margin-top: 128px;
+}
+
 .gif-container > img {
   margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+div.add-gifs {
+  display: none;
+  justify-content: center;
+}
+
+div.add-button {
+  padding: 20px 30px;
+  font-family: 'VT323', monospace;
+  font-size: 2em;
+  background-color: rgb(96, 226, 165);
+}
+
+div.add-button:hover,
+div.add-button:focus {
+  background-color: rgb(38, 201, 193);
+}
+
+div.add-button:hover {
+  cursor: pointer;
+}
+
+div.add-button:focus {
+  outline: none;
 }

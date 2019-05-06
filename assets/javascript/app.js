@@ -27,10 +27,19 @@ function populateButtons() {
 }
 
 function addButton() {
-  let newTopic = $('input').val();
+  let newTopic = $('input').val().toLowerCase();
+  let duplicate = false;
   if (newTopic) {
-    topics.push(newTopic.toLowerCase());
-    populateButtons();
+    for (let topic of topics) {
+      if (topic === newTopic) {
+        duplicate = true;
+      }
+    }
+    if (!duplicate) {
+      topics.push(newTopic);
+      populateButtons();
+      fetchGIFS(newTopic, false);
+    }
   }
   $('input').val('');
 }
@@ -46,13 +55,35 @@ function removeButton() {
   populateButtons();
 }
 
-function fetchGIFS() {
-  const topic = $(this).text();
+let recentTopic;
+let offset = 0;
+
+function fetchGIFS(e, arg) {
+  let topic;
+
+  if (typeof e === 'string') {
+    topic = e;
+  } else {
+    topic = $(e).text().trim();
+  }
+
+  if (topic == 'MORE') {
+    topic = recentTopic;
+  }
+
+
+  if (topic === recentTopic) {
+    offset += 10;
+  } else {
+    offset = 0;
+  }
+
+  recentTopic = topic;
 
   const settings = {
     "async": true,
     "crossDomain": true,
-    "url": `https://api.giphy.com/v1/gifs/search?q=${topic}&api_key=sJgUHeIfp2hdiI5tURDzwlVLFT6PM9lH&limit=10`,
+    "url": `https://api.giphy.com/v1/gifs/search?q=${topic}&offset=${offset}&api_key=sJgUHeIfp2hdiI5tURDzwlVLFT6PM9lH&limit=10&rating=pg`,
     "method": "GET",
     "headers": {}
   }
@@ -66,18 +97,28 @@ function fetchGIFS() {
         imgSource: item.images.fixed_height_still.url,
       });
     }
-    renderGIFS(gifs);
+    if (!arg) {
+      renderGIFS(gifs, false);
+    } else {
+      renderGIFS(gifs, true);
+    }
   });
 }
 
-function renderGIFS(gifs) {
-  $('.gif-container').empty();
+function renderGIFS(gifs, repeat) {
+  if (!repeat) {
+    $('.gif-container').empty();
+  }
+
   for (const gif of gifs) {
     let img = $('<img>');
     img.addClass('gif');
     img.attr({ "src": gif.imgSource, "data-gif": gif.gifSource, "data-img": gif.imgSource, "data-state": "still" });
     $('.gif-container').append(img);
   }
+
+  // Reveal "load more gifs" button
+  $('.add-gifs').css('display', 'flex');
 }
 
 function toggleGIF() {
@@ -112,10 +153,27 @@ $(function () {
 
   // Handle clicks
   $(document)
-    .on('click', '.topic', fetchGIFS) // Handle topic buttons
+    .on('click', '.topic', e => {
+      fetchGIFS(e.target, false);
+    }) // Handle topic buttons
     .on('click', '.gif', toggleGIF) // Handle GIFs
     .on('click', '.add-button', addButton) // Handle "add button" button
-    .on('click', '.button i', removeButton); // Handle "remove button" 
+    .on('click', '.button i', removeButton) // Handle "remove button" 
+    .on('click', '.add-button', e => {
+      fetchGIFS($(e.target), true);
+    });
+
+  // Sticky menu
+  let headerHeight = $('.header').outerHeight(true);
+  $(window).scroll(() => {
+    if ($(this).scrollTop() > headerHeight) {
+      $('.menu').addClass('sticky');
+      $('.gif-container').addClass('increased-margin');
+    } else {
+      $('.menu').removeClass('sticky');
+      $('.gif-container').removeClass('increased-margin');
+    }
+  });
 
   // Handle input upon keydown of Enter key
   $('input').keydown(e => {
