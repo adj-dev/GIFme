@@ -2,12 +2,7 @@ const topics = [
   'awesome',
   'funny',
   'dogs',
-  'cats',
-  'pie',
-  'turtle',
-  'horse',
-  'snowboarding',
-  'sitcom'
+  'cats'
 ]
 
 function populateButtons() {
