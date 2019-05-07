@@ -154,7 +154,7 @@ $(function () {
     .on('click', '.gif', toggleGIF) // Handle GIFs
     .on('click', '.add-button', addButton) // Handle "add button" button
     .on('click', '.button i', removeButton) // Handle "remove button" 
-    .on('click', '.add-button', e => {
+    .on('click', '.more', e => {
       fetchGIFS($(e.target), true);
     });
 

@@ -171,23 +171,24 @@ div.add-gifs {
   justify-content: center;
 }
 
-div.add-button {
+button.more {
   padding: 20px 30px;
   font-family: 'VT323', monospace;
   font-size: 2em;
   background-color: rgb(96, 226, 165);
+  border: none;
 }
 
-div.add-button:hover,
-div.add-button:focus {
+button.more:hover,
+button.more:focus {
   background-color: rgb(38, 201, 193);
 }
 
-div.add-button:hover {
+button.more:hover {
   cursor: pointer;
 }
 
-div.add-button:focus {
+button.more:focus {
   outline: none;
 }
 
@@ -225,6 +226,7 @@ div.add-button:focus {
 
   div.buttons {
     margin: 0 15px;
+    overflow-x: scroll;
   }
 
   div.button > i {
