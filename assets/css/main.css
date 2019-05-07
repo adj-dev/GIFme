@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Space Mono', monospace;
+  font-size: 16px;
 }
 
 /*--------------------------------------------------*/
@@ -207,18 +208,32 @@ div.add-button:focus {
     font-size: 0.6em;
   }
 
+  input {
+    font-size: 135%;
+  }
+
   div.menu {
     flex-direction: column-reverse;
     justify-content: unset;
-    align-items: center;
+    box-shadow: none;
   }
 
-  button.topic {
-    padding: 12px 14px;
-    font-size: 1.5em;
+  div.form {
+    align-self: center;
+    margin-left: 0;
+  }
+
+  div.buttons {
+    padding: 0 15px 10px 15px;
   }
 
   div.button > i {
     font-size: 1.2em;
+    top: -2px;
+    right: 2px;
+  }
+
+  button.topic {
+    padding: 10px 12px;
   }
 }
