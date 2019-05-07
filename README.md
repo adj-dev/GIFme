@@ -1,5 +1,5 @@
 # GIFme
-## _Search and download millions of GIFs_
+## _Search through millions of GIFs_
 
 GIFme uses the GIPHY database to provide the user a limitless amount of gifs to search through. 
 
