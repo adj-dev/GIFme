@@ -206,4 +206,19 @@ div.add-button:focus {
   h1.banner > span {
     font-size: 0.6em;
   }
+
+  div.menu {
+    flex-direction: column-reverse;
+    justify-content: unset;
+    align-items: center;
+  }
+
+  button.topic {
+    padding: 12px 14px;
+    font-size: 1.5em;
+  }
+
+  div.button > i {
+    font-size: 1.2em;
+  }
 }
