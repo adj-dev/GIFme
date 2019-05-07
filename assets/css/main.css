@@ -160,7 +160,7 @@ div.gif-container.increased-margin {
   margin-top: 128px;
 }
 
-.gif-container > img {
+.gif-container  img {
   margin-bottom: 50px;
   padding: 0 20px;
 }
@@ -188,4 +188,22 @@ div.add-button:hover {
 
 div.add-button:focus {
   outline: none;
+}
+
+/*--------------------------------------------------*/
+/*-------------------RESPONSIVENESS-----------------*/
+/*--------------------------------------------------*/
+
+@media only screen and (max-width: 500px) {
+  div.header {
+    height: 70vh;
+  }
+
+  h1.banner > img {
+    width: 50%;
+  }
+
+  h1.banner > span {
+    font-size: 0.6em;
+  }
 }
