@@ -14,7 +14,7 @@ The application will block duplicate tags from being submitted.
 
 ## Technologies used
 
-GIFme is a simple app: it's built in **html**, **css** and **javascript**.**jQuery** is used for DOM manipulation and **axios** for making calls to the GIPHY api. 
+GIFme is a simple app: it's built in **html**, **css** and **javascript**. The **jQuery** library is used for DOM manipulation and **axios** for making calls to the GIPHY api. 
 
 ### [View the live deployment](https://adj-dev.github.io/GIFme/)
 
