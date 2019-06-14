@@ -1,5 +1,4 @@
 # GIFme
-## _Search through millions of GIFs_
 
 ![screenshot](assets/images/screenshot.png)
 
